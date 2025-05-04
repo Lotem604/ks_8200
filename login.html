@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>יוזמות - התחברות</title>
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="footer.css" />
+    <script src="header.js" defer></script>
+    <script src="auth.js"></script>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-image">
+        <h2>ברוכים הבאים</h2>
+        <p>התחברו לחשבון שלכם כדי לגשת לכל התכונות שלנו</p>
+      </div>
+      <div class="login-form">
+        <div class="register-button">
+          <a href="register.html">הרשמה</a>
+        </div>
+        <h1>התחברות</h1>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="email">אימייל</label>
+            <input type="email" name="email" id="email" placeholder="הזן אימייל" required />
+          </div>
+          <div class="form-group">
+            <label for="password">סיסמא</label>
+            <input type="password" name="password" id="password" placeholder="הזן סיסמא" required />
+          </div>
+          <button type="submit">התחברות</button>
+        </form>
+      </div>
+    </div>
+    <footer>
+        <div class="container">
+          <div class="footer-links">
+            <div class="footer-column">
+              <h3>התקווה 8</h3>
+              <ul>
+                <li><a href="#">אודות</a></li>
+                <li><a href="#">החזון שלנו</a></li>
+                <li><a href="#">צוות</a></li>
+                <li><a href="#">שאלות נפוצות</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3>יזמים</h3>
+              <ul>
+                <li><a href="#">הצג יוזמה</a></li>
+                <li><a href="#">מצא שותפים</a></li>
+                <li><a href="#">סיפורי הצלחה</a></li>
+                <li><a href="#">משאבים</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3>שותפים</h3>
+              <ul>
+                <li><a href="">הירשם כשותף</a></li>
+                <li><a href="initiatives.html">מצא יוזמות</a></li>
+                <li><a href="#">אפשרויות התנדבות</a></li>
+                <li><a href="#">עדויות</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3>צור קשר</h3>
+              <ul>
+                <li><a href="#">צור קשר</a></li>
+                <li><a href="#">תמיכה</a></li>
+                <li><a href="#">שותפויות</a></li>
+                <li><a href="#">דרושים</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="copyright">
+            © 2025 התקווה 8. כל הזכויות שמורות. שי דרי ויהב לוי
+          </div>
+        </div>
+      </footer>
+
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        const result = loginUser(email, password);
+        
+        if (result.success) {
+          localStorage.setItem('currentUser', JSON.stringify(result.user));
+          window.location.href = 'main.html';
+        } else {
+          alert(result.message);
+        }
+      });
+    </script>
+  </body>
+</html>
