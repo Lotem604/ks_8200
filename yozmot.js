@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (cancelBtn) {
     cancelBtn.addEventListener("click", function () {
       if (confirm("האם אתה בטוח שברצונך לבטל?")) {
-        window.location.href = "main.html";
+        window.location.href = "index.html";
       }
     });
   }
